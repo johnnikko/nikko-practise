@@ -1,0 +1,8 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Edit Employee</h1>
+  </div>
+  <div class="panel-body">
+    <%= render partial: "form", locals:{employee: @employee, url: admin_employee_path, methods: :put} %>
+  </div>
+</div>

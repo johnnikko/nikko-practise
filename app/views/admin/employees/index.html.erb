@@ -1,0 +1,29 @@
+<h1>Employees</h1>
+<%= link_to "Add new", new_admin_employee_path, class: "btn btn-success"%>
+<br>
+<br>
+<table class="table table-bordered">
+  <thead>
+   <th width="5%">Id</th>
+   <th width="60%">Name</th>
+   <th width="15%">Position</th>
+   <th width="20%">Action</th>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.last_name + "," + employee.first_name + "," + employee.middle_name  %></td>
+        <td><%= employee.position %></td>
+        <td>
+          <%= link_to "View", admin_employee_path(employee), class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_admin_employee_path(employee), class: "btn btn-warning" %>
+          <%= link_to "Delete", admin_employee_path(employee),data:{confirm: "Are you sure to delete?"}, method: :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pull-right">
+  <%= paginate @employees %>
+</div>

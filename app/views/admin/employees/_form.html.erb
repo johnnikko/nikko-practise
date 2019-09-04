@@ -1,0 +1,41 @@
+<%= form_for employee, url: url, method: methods do |f| %>
+  <div class="form-group">
+    <%= f.label :First_Name %>
+    <%= f.text_field :first_name, class: "form-control" %>
+    <%= render partial: "validation", locals:{employee: employee, column: :first_name} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :LastName %>
+    <%= f.text_field :last_name, class: "form-control" %>
+    <%= render partial: "validation", locals:{employee: employee, column: :last_name} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Middle_Name %>
+    <%= f.text_field :middle_name, class: "form-control" %>
+    <%= render partial: "validation", locals:{employee: employee, column: :middle_name} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select(["Single","Married","Complicated"]),{include_black: true},{class: "form-control"} %>
+    <%= render partial: "validation", locals:{employee: employee, column: :status} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.select :position, options_for_select(["Staff","Manager","Cashier"]),{include_black: true},{include_black: true, class: "form-control"} %>
+    <%= render partial: "validation", locals:{employee: employee, column: :position} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Contact_Number %>
+    <%= f.text_field :contact_number, class: "form-control" %>
+    <%= render partial: "validation", locals:{employee: employee, column: :contact_number} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Address %>
+    <%= f.text_area :address, class: "form-control", rows: "5" %>
+    <%= render partial: "validation", locals:{employee: employee, column: :address} %>
+  </div>
+  <div class="pull-right">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Back", admin_employees_path, class: "btn btn-default" %>
+  </div>
+<% end %>

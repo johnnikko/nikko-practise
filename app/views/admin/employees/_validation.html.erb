@@ -1,0 +1,3 @@
+<% if employee.errors.full_messages_for(column).any? %>
+  <label class="text-danger"><%= employee.errors.full_messages_for(column)%></label>
+<% end %>
