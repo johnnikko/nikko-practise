@@ -1,0 +1,26 @@
+<%= form_for movie,url: url,method: methods do |f| %>
+  <div class="form-group">
+    <%= f.label :Title %>
+    <%= f.text_field :title,class: "form-control"%>
+    <%= render partial: "admin/shared/validation", locals:{obj: movie, column: :title} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Description %>
+    <%= f.text_area :description,class: "form-control", rows: "10"%>
+    <%= render partial: "admin/shared/validation", locals:{obj: movie, column: :description} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Total_Copy %>
+    <%= f.text_field :total_copy,class: "form-control", type: "number"%>
+    <%= render partial: "admin/shared/validation", locals:{obj: movie, column: :total_copy} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Price %>
+    <%= f.text_field :price,class: "form-control", type: "number"%>
+    <%= render partial: "admin/shared/validation", locals:{obj: movie, column: :price} %>
+  </div>
+  <div class="pull-right">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Back", admin_movies_path, class: "btn btn-default"  %>
+  </div>
+<% end %>

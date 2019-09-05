@@ -14,8 +14,11 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
+    @employee = Employee.create(employee_params)
     if @employee.save
+      @account = Account.create(email: @employee.email,password: "qwer4321")
+      @account.employee_id = @employee.id
+      @account.save
       flash['success'] = "Employee successfuly added!"
       redirect_to admin_employees_path
     else
@@ -50,6 +53,6 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.require(:employee).permit(:first_name,:last_name,:middle_name,:status,:position,:contact_number,:address)
+    params.require(:employee).permit(:first_name,:last_name,:middle_name,:status,:position,:contact_number,:address,:email)
   end
 end

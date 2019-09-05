@@ -1,0 +1,37 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Movie Information</h1>
+  </div>
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 text-right">Title:</label>
+        <div class="col-sm-10">
+          <p><%= @movie.title %></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-right">Description:</label>
+        <div class="col-sm-10">
+          <p><%= @movie.description %></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-right">Total Copy:</label>
+        <div class="col-sm-10">
+          <p><%= @movie.total_copy %></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-right">Price:</label>
+        <div class="col-sm-10">
+          <p><%= @movie.price %></p>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right">
+      <%= link_to "Edit Employee", edit_admin_movie_path(@movie), class: "btn btn-primary" %>
+      <%= link_to "Back", admin_movies_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
