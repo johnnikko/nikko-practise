@@ -8,10 +8,9 @@ Rails.application.routes.draw do
     resources :movies
   end
 
-  resources :employees do
-    resources :movies do
-      
-    end
-  end
+  resources :customers
+
+  resources :transactions
+
 
 end

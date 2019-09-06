@@ -40,8 +40,9 @@
               <li><%= link_to "Customers", ""  %></li>
             <% end %>
             <% if staff? %>
-              <li><%= link_to "Transaction", "" %></li>
-              <li><%= link_to "Movies", "" %></li>
+              <li><%= link_to "Transaction", transactions_path %></li>
+              <li><%= link_to "Customers", customers_path %></li>
+              <li><%= link_to "Rented Movies", "" %></li>
             <% end %>
           <% end %>
         </ul>

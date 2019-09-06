@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1 class="panel-title">New Transaction</h1>
+      </div>
+      <div class="panel-body">
+        <%= render partial: "form", locals:{transaction: @transaction, url: transactions_path, methods: :post} %>
+      </div>
+    </div>
+  </div>
+</div>

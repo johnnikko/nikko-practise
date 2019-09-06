@@ -1,5 +1,7 @@
 class Admin::MoviesController < ApplicationController
   before_action :set_movie, only: [:edit,:show,:update,:delete]
+  helper_method :movie_exits?
+
   def index
     @movies = Movie.page(params[:page]).per(10)
   end
@@ -45,5 +47,9 @@ class Admin::MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:title,:description,:total_copy,:price)
+  end
+
+  def movie_exist?
+    Movie.where(title: params(:title)).exists?
   end
 end

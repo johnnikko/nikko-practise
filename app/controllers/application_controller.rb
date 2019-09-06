@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  helper_method :admin?
+  helper_method :admin?, :staff?
 
   def admin?
     current_user.position == "admin"
