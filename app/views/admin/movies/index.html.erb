@@ -1,16 +1,18 @@
-<h1>Movies</h1>
-<%= link_to "Add New",new_admin_movie_path, class: "btn btn-success" %>
-<br>
-<br>
-<table class="table table-bordered">
-  <thead>
+<%= render partial: "shared/messages", locals:{obj: @movie, file: "index"} %>
+<div class="container">
+  <h1>Movies</h1>
+  <%= link_to "Add New",new_admin_movie_path, class: "btn btn-success" %>
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead>
     <th width="5%">Id</th>
     <th width="55%">Title</th>
     <th width="10%">Total Copy</th>
     <th width="10%">Price</th>
     <th width="20%">Action</th>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @movies.each do |movies| %>
       <tr>
         <td><%= movies.id %></td>
@@ -24,8 +26,9 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<div class="pull-right">
-  <%= paginate @movies %>
+    </tbody>
+  </table>
+  <div class="pull-right">
+    <%= paginate @movies %>
+  </div>
 </div>

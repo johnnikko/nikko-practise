@@ -8,9 +8,15 @@ Rails.application.routes.draw do
     resources :movies
   end
 
-  resources :customers
-
   resources :transactions
+
+  resources :customers do
+    resources :transactions, only: [:index]
+  end
+
+  resources :rented_movies do
+    resources :transactions, only: [:index]
+  end
 
 
 end

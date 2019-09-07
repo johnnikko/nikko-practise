@@ -1,22 +1,28 @@
-<h1>Transactions</h1>
-<%= link_to "New Transaction", new_transaction_path, class: "btn btn-primary" %>
-<br>
-<br>
-<table class="table table-bordered">
-  <thead>
+<%= render partial: "shared/messages", locals:{obj: @transaction, file: "index"} %>
+<div class="container">
+  <h1>Transactions</h1>
+  <%= link_to "New Transaction", new_transaction_path, class: "btn btn-primary" %>
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead>
     <th width="5%">Id</th>
     <th width="45">Customer Name</th>
     <th width="30%">Movie</th>
     <th width="10%">Quantity</th>
     <th width="20%">Action</th>
-  </thead>
-  <% @transaction.each do |transaction| %>
-    <tr>
-      <td><%= transaction.id %></td>
-      <td><%= transaction.customer.name %></td>
-      <td><%= transaction.movie.title %></td>
-      <td><%= transaction.quantity %></td>
-      <td></td>
-    </tr>
-  <% end %>
-</table>
+    </thead>
+    <% @transaction.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.customer.name %></td>
+        <td><%= transaction.movie.title %></td>
+        <td><%= transaction.quantity %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="pull-right">
+    <%= paginate @transaction %>
+  </div>
+</div>

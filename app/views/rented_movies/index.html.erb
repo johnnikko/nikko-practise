@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Rented Movies</h1>
+  <table class="table table-bordered">
+    <thead>
+    <th width="5%">Id</th>
+    <th width="50%">Movie</th>
+    <th width="10%">Total Copy</th>
+    <th width="10%">Total Rented</th>
+    <th width="10%">Available Copy</th>
+    </thead>
+    <tbody>
+      <% @rented_movies.each do |rented_movie| %>
+        <tr>
+          <td><%= rented_movie.id %></td>
+          <td><%= rented_movie.title %></td>
+          <td><%= rented_movie.total_copy %></td>
+          <td><%= link_to "#{rented_movie.transactions.sum(:quantity)}", rented_movie_transactions_path(rented_movie) %></td>
+          <td>
+            <% @total_copy = rented_movie.total_copy %>
+            <% @total_rented = rented_movie.transactions.sum(:quantity) %>
+            <%= @total_copy - @total_rented %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

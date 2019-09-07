@@ -1,15 +1,17 @@
-<h1>Employees</h1>
-<%= link_to "Add new", new_admin_employee_path, class: "btn btn-success"%>
-<br>
-<br>
-<table class="table table-bordered">
-  <thead>
-   <th width="5%">Id</th>
-   <th width="60%">Name</th>
-   <th width="15%">Position</th>
-   <th width="20%">Action</th>
-  </thead>
-  <tbody>
+<%= render partial: "shared/messages", locals:{obj:@employee, file: "index"} %>
+<div class="container">
+  <h1>Employees</h1>
+  <%= link_to "Add new", new_admin_employee_path, class: "btn btn-success"%>
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead>
+    <th width="5%">Id</th>
+    <th width="60%">Name</th>
+    <th width="15%">Position</th>
+    <th width="20%">Action</th>
+    </thead>
+    <tbody>
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.id %></td>
@@ -22,8 +24,9 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<div class="pull-right">
-  <%= paginate @employees %>
+    </tbody>
+  </table>
+  <div class="pull-right">
+    <%= paginate @employees %>
+  </div>
 </div>

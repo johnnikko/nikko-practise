@@ -1,7 +1,8 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:edit,:update,:destroy,:show]
   def index
-    @customer = Customer.includes(:transactions).page(params[:id]).per(10)
+    @customer = Customer.includes(:transactions).page(params[:page]).per(10)
+    @customer = @customer.where(movie_id: params[:rented_movie_id]).references(:transactions).page(params[:page]).per(10) if params[:rented_movie_id]
   end
 
   def new
@@ -12,7 +13,7 @@ class CustomersController < ApplicationController
     @customer = Customer.create(customer_params)
     @customer.user_id = current_user.id
     if @customer.save
-      flash['success'] = "Customer successfully added!"
+      flash[:success] = "Customer successfully added!"
       redirect_to customers_path
     else
       render :new
@@ -25,7 +26,7 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      flash['success'] = "Customer successfully updated!"
+      flash[:success] = "Customer successfully updated!"
       redirect_to customers_path
     else
       render :edit

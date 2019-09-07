@@ -15,3 +15,9 @@
 //= require twitter/bootstrap
 //= require activestorage
 //= require_tree .
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideRight(100, function(){
+        $(this).remove();
+    });
+}, 2000);
