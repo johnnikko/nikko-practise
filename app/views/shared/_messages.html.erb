@@ -1,14 +1,16 @@
-<span class="pull-right">
-  <div style="width: 300px;">
-    <% if !file == "index" %>
-      <% if obj.errors.any? %>
+<% if obj.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h1 class="panel-title">Errors</h1>
+    </div>
+    <div class="panel-body">
+      <ul>
         <% obj.errors.full_messages.each do |message| %>
-        <% flash[:danger] = "#{message}" %>
-            <%= bootstrap_flash %>
+          <li><%= message %></li>
         <% end %>
-      <% end %>
-    <% else %>
-     <%= bootstrap_flash %>
-    <% end %>
+      </ul>
+    </div>
   </div>
-</span>
+<% end %>
+
+

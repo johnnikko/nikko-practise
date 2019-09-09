@@ -5,10 +5,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :employees
-    resources :movies
+    resources :movies do
+      resources :issues
+    end
   end
 
-  resources :transactions
+  resources :transactions do
+    resources :customers, only: [:index]
+  end
 
   resources :customers do
     resources :transactions, only: [:index]

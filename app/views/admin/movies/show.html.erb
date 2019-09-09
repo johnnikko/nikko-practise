@@ -30,6 +30,7 @@
       </div>
     </div>
     <div class="pull-right">
+      <%= link_to "Add Issue", new_admin_movie_issue_path(@movie), class: "btn btn-warning" %>
       <%= link_to "Edit Employee", edit_admin_movie_path(@movie), class: "btn btn-primary" %>
       <%= link_to "Back", admin_movies_path, class: "btn btn-default" %>
     </div>

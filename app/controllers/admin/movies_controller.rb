@@ -3,7 +3,7 @@ class Admin::MoviesController < ApplicationController
   helper_method :movie_exits?
 
   def index
-    @movies = Movie.page(params[:page]).per(10)
+    @movies = Movie.includes(:issues).page(params[:page]).per(10)
   end
 
   def new
@@ -27,7 +27,7 @@ class Admin::MoviesController < ApplicationController
   def update
     if @movie.update(movie_params)
       flash[:success] = "Movie successfuly update!"
-      redirect_to admin_movies_path
+      redirect_to admin_movies_path(page: params[:page])
     else
       render :edit
     end

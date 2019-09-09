@@ -1,9 +1,9 @@
-<%= render partial: "shared/messages", locals:{obj:@employee, file: "edit"} %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="panel-title">Edit Employee</h1>
   </div>
   <div class="panel-body">
-    <%= render partial: "form", locals:{employee: @employee, url: admin_employee_path, methods: :put} %>
+    <%= render partial: "shared/messages", locals:{obj: @employee} %>
+    <%= render partial: "form", locals:{employee: @employee, url: admin_employee_path(page: params[:page]), methods: :put} %>
   </div>
 </div>

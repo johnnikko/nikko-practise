@@ -33,7 +33,7 @@ class Admin::EmployeesController < ApplicationController
   def update
     if @employee.update(employee_params)
       flash['success'] = "Employee successfuly update!"
-      redirect_to admin_employees_path
+      redirect_to admin_employees_path(page: params[:page])
     else
       render :edit
     end

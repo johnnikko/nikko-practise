@@ -37,7 +37,6 @@
           <% if admin? %>
             <li><%= link_to "Employees", admin_employees_path %></li>
             <li><%= link_to "Movies", admin_movies_path %></li>
-            <li><%= link_to "Customers", "" %></li>
           <% end %>
           <% if staff? %>
             <li><%= link_to "Transaction", transactions_path %></li>
@@ -55,7 +54,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-fluid">
+<div class="container">
+  <%= bootstrap_flash %>
   <%= yield %>
 </div> <!-- /container -->
 
