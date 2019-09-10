@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
   def index
     @customer = Customer.includes(:transactions).page(params[:page]).per(10)
-    @customer = @customer.where(id: params[:transaction_id]) if params[:transaction_id]
+    @customer = @customer.find(params[:transaction_id]) if params[:transaction_id]
   end
 
   def new
@@ -21,10 +21,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  def edit
-    #set_customer
-  end
-
   def update
     if @customer.update(customer_params)
       flash[:success] = "Customer successfully updated!"
@@ -34,16 +30,7 @@ class CustomersController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
-
-  def show
-
-  end
-
   private
-
   def customer_params
     params.require(:customer).permit(:name,:gender,:status,:age,:email,:address)
   end

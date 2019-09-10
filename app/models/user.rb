@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :customers
   has_many :transactions
+  has_many :return_movies
 end

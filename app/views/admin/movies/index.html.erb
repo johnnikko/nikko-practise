@@ -21,7 +21,7 @@
       <td><%= movies.price %></td>
       <td>
         <%= link_to "Show", admin_movie_path(movies), class: "btn btn-primary" %>
-        <%= link_to "Update", edit_admin_movie_path(movies), class: "btn btn-warning" %>
+        <%= link_to "Update", edit_admin_movie_path(movies,page: params[:page]), class: "btn btn-warning" %>
         <%= link_to "Delete", admin_movies_path(movies), data: {confirm: "Are you sure to delete?"}, method: :delete, class: "btn btn-danger" %>
       </td>
     </tr>

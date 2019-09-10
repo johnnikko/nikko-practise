@@ -1,15 +1,16 @@
 class Transaction < ActiveRecord::Base
 
-  belongs_to :customer
-  belongs_to :user
-  belongs_to :movie
-
   validates :user_id     ,presence: true
   validates :customer_id ,presence: true
   validates :movie_id    ,presence: true
   validates :quantity    ,presence: true
 
   validate :is_available
+
+  belongs_to :customer
+  belongs_to :user
+  belongs_to :movie
+  has_many :return_movies
 
   private
   def is_available

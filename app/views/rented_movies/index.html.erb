@@ -15,11 +15,7 @@
           <td><%= rented_movie.title %></td>
           <td><%= rented_movie.total_copy %></td>
           <td><%= link_to "#{rented_movie.transactions.sum(:quantity)}", rented_movie_transactions_path(rented_movie) %></td>
-          <td>
-            <% @total_copy = rented_movie.total_copy %>
-            <% @total_rented = rented_movie.transactions.sum(:quantity) %>
-            <%= @total_copy - @total_rented %>
-          </td>
+          <td><%= available_movies(rented_movie.total_copy,rented_movie.transactions.sum(:quantity)) %></td>
         </tr>
       <% end %>
     </tbody>

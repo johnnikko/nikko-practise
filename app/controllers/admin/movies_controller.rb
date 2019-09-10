@@ -20,8 +20,8 @@ class Admin::MoviesController < ApplicationController
     end
   end
 
-  def edit
-    #set_movie
+  def show
+    @issues = @movie.issues.all
   end
 
   def update

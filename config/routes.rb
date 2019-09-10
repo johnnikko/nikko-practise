@@ -16,10 +16,18 @@ Rails.application.routes.draw do
 
   resources :customers do
     resources :transactions, only: [:index]
+    resources :return_movies, only: [:index]
   end
 
   resources :rented_movies do
     resources :transactions, only: [:index]
+    resources :return_movies, only: [:index]
+  end
+
+  resources :return_movies do
+    resources :customers, only: [:index]
+    resources :transactions, only: [:index]
+
   end
 
 

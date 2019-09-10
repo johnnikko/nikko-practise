@@ -8,7 +8,7 @@ class Admin::IssuesController < ApplicationController
     @issue = @movie.issues.create(params.require(:issue).permit(:description))
     if @issue.save
       flash[:success] = "Isseu added!"
-      redirect_to admin_movies_path
+      redirect_to admin_movie_path(@movie)
     end
   end
 end
